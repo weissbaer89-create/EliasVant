@@ -18,7 +18,7 @@
     <div class="header-right">
       <div class="status-badge">▶ AKTIV // EINSATZBEREIT</div>
       <div class="threat-level">BEDROHUNGSSTUFE: <span class="threat-val">KRITISCH [9/10]</span></div>
-      <div class="barcode">|||||||| ||| |||||| ||||| |||||||| ||| CHIMERA-#7741-V</div>
+      <div class="barcode">|||||||| ||| |||||| ||||| |||||||| ||| CHIMERA-#7741-V1</div>
     </div>
   </div>
 
