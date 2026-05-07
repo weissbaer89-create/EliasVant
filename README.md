@@ -13,7 +13,7 @@
   <div class="header">
     <div class="header-left">
       <div class="header-sys">SYSTEM // CHIMERA-DB v4.7.2 // ZUGRIFF GEWÄHRT</div>
-      <div class="header-title">ELIAS „DER DOCHT" VANT</div>
+      <div class="header-title">ELIAS |DER DOCHT| VANT</div>
       <div class="header-sub">INFILTRATIONSAKTE // KLASSIFIZIERUNG: ULTRAGEHEIM // SEKTION 9-DELTA</div>
     </div>
     <div class="header-right">
