@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="de">
 <head>
 <meta charset="UTF-8">
@@ -15,7 +16,7 @@
     --accent3: #ff2200;
     --cyan: #00d4ff;
     --cyan2: #007a99;
-    --text: #c6d2d8; /* #c8dce8; */
+    --text: #c8dce8;
     --text-dim: #5a7a8a;
     --green: #00ff88;
     --red: #ff2244;
@@ -174,7 +175,9 @@
     filter: contrast(1.1) saturate(0.7) sepia(0.2);
     transition: filter 0.3s;
   }
-  .id-photo-wrap:hover img { filter: contrast(1.2) saturate(0.9) sepia(0.1); }
+  /*.id-photo-wrap:hover img { filter: contrast(1.2) saturate(0.9) sepia(0.1);}*/
+  .id-photo-wrap:hover img:first-child{display:none}
+  .id-photo-wrap:hover img::last-child{display:inline-block}
   .id-overlay {
     position: absolute;
     inset: 0;
@@ -611,7 +614,9 @@
 </style>
 </head>
 <body>
+
 <div class="main-wrapper">
+
   <!-- HEADER -->
   <div class="header">
     <div class="header-left">
@@ -622,15 +627,17 @@
     <div class="header-right">
       <div class="status-badge">▶ AKTIV // EINSATZBEREIT</div>
       <div class="threat-level">BEDROHUNGSSTUFE: <span class="threat-val">KRITISCH [9/10]</span></div>
-      <div class="barcode">|||||||| ||| |||||| ||||| |||||||| ||| CHIMERA-#7741-V1</div>
+      <div class="barcode">|||||||| ||| |||||| ||||| |||||||| ||| CHIMERA-#7741-V</div>
     </div>
   </div>
 
   <!-- <div class="edit-hint">⟨ <span>ALLE FELDER EDITIERBAR</span> — KLICKEN UM ZU BEARBEITEN ⟩</div> -->
 
   <div class="layout">
-	  <!-- LEFT COLUMN -->
+
+    <!-- LEFT COLUMN -->
     <div class="col-left">
+
       <!-- ID PHOTO PANEL -->
       <div class="panel" style="padding:0;">
         <div class="panel-header">
@@ -639,7 +646,12 @@
         </div>
         <div class="id-photo-wrap">
           <!-- <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='370' viewBox='0 0 280 370'%3E%3Crect fill='%23080c10' width='280' height='370'/%3E%3Ctext x='140' y='160' text-anchor='middle' font-family='monospace' font-size='60' fill='%231e3040'%3E👤%3C/text%3E%3Ctext x='140' y='210' text-anchor='middle' font-family='monospace' font-size='12' fill='%235a7a8a'%3EFOTO LADEN...%3C/text%3E%3Ctext x='140' y='230' text-anchor='middle' font-family='monospace' font-size='10' fill='%231e3040'%3EODER URL EINFÜGEN%3C/text%3E%3C/svg%3E" id="char-photo" alt="Charakterfoto"> -->
-          <img src="Portrait.png" alt="Portrait" width="500" height="600">
+          <img src="PortraitB.png" class="vanish" alt="PortraitB" width="500" height="600">
+          <img src="PortraitA.png" alt="PortraitA" width="500" height="600">
+		  
+		  
+		  
+		  
 		  <div class="id-overlay"></div>
           <div class="scan-line"></div>
           <div class="id-corner tl"></div><div class="id-corner tr"></div>
@@ -651,6 +663,7 @@
           <input type="text" id="photo-url" placeholder="https://..." style="width:100%;background:var(--panel2);border:1px solid var(--border);color:var(--text);font-family:'Share Tech Mono',monospace;font-size:10px;padding:5px 8px;outline:none;" oninput="updatePhoto(this.value)">
         </div> -->
       </div>
+
       <!-- IDENTITY -->
       <div class="panel cyan-accent">
         <div class="panel-header">
@@ -660,33 +673,36 @@
         <div class="panel-body">
           <div class="identity-field">
             <div class="field-label">NAME</div>
-            <input class="field-value highlight" value="Elias Flux">
+            <!-- <input class="field-value highlight" value="Elias Flux"> -->
+			<span class="field-value highlight" contenteditable="false">Elias Flux</span>
           </div>
 		  <div class="identity-field">
             <div class="field-label">ALIAS</div>
-            <input class="field-value highlight" value="&ldquo;Der Docht&rdquo;">
+            <!-- <input class="field-value highlight" value="Der Docht">-->
+			<span class="field-value highlight" contenteditable="false">&ldquo;Der Docht&rdquo;</span>
           </div>
           <div class="identity-field">
             <div class="field-label">SPEZIES // KLASSE</div>
-            <input class="field-value" value="Mensch (Gen-mod. Gestaltwandler)">
+			<span class="field-value" contenteditable="false">Mensch (Gen-mod. Gestaltwandler)</span>
           </div>
           <div class="identity-field">
             <div class="field-label">OPERATIVE ROLLE</div>
-            <input class="field-value" value="Infiltrator & Terminierungsexperte">
+			<span class="field-value" contenteditable="false">Infiltrator & Terminierungsexperte</span>
           </div>
           <div class="identity-field">
             <div class="field-label">HEIMATWELT</div>
-            <input class="field-value" value="Kepler-186f (Industrie-Ödland)">
+			<span class="field-value" contenteditable="false">Kepler-186f (Industrie-Ödland)</span>
           </div>
           <div class="identity-field">
             <div class="field-label">URSPRUNG // PROJEKT</div>
-            <input class="field-value" value="Project Chimera (FEHLGESCHLAGEN)">
+			<span class="field-value" contenteditable="false">Project Chimera (FEHLGESCHLAGEN)</span>
           </div>
           <div class="identity-field">
             <div class="field-label">OPERATIVES MOTTO</div>
-             <!-- <input class="field-value italic-field" value="&bdquo;Jedes Gesicht ist eine Maske, und jede Maske brennt.&ldquo;"> -->
-			<textarea class="ability-desc" rows="2">&bdquo;Jedes Gesicht ist eine Maske, und jede Maske brennt.&ldquo;</textarea>
+            <!-- <input class="field-value italic-field" value="„Jedes Gesicht ist eine Maske, und jede Maske brennt.""> -->
+			<span class="ability-desc" contenteditable="false">&ldquo;Jedes Gesicht ist eine Maske, und jede Maske brennt.&rdquo;</span>
           </div>
+
           <div class="divider"><div class="divider-line"></div><div class="divider-label">MARKIERUNGEN</div><div class="divider-line"></div></div>
           <div class="tag-row" id="tag-row">
             <span class="tag active">PYROMANE</span>
@@ -698,11 +714,15 @@
           </div>
         </div>
       </div>
+
     </div>
+
     <!-- RIGHT COLUMN -->
     <div class="col-right">
+
       <!-- STATS GRID -->
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+
         <!-- PRIMÄRWERTE -->
         <div class="panel">
           <div class="panel-header">
@@ -713,6 +733,7 @@
             <!-- stats injected by JS -->
           </div>
         </div>
+
         <!-- SEKUNDÄRWERTE -->
         <div class="panel cyan-accent">
           <div class="panel-header">
@@ -723,6 +744,7 @@
           </div>
         </div>
       </div>
+
       <!-- NANO-STATUS -->
       <div class="panel green-accent">
         <div class="panel-header">
@@ -733,6 +755,7 @@
           <div class="nano-grid" id="nano-grid">
             <!-- injected by JS -->
           </div>
+
           <div class="divider"><div class="divider-line"></div><div class="divider-label">PYROMANISCHER TRIEB</div><div class="divider-line"></div></div>
           <div style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;">
             <span class="pyro-label">INTENSITÄT:</span>
@@ -741,6 +764,7 @@
           </div>
         </div>
       </div>
+
       <!-- FÄHIGKEITEN & AUSRÜSTUNG -->
       <div class="panel">
         <div class="panel-header">
@@ -778,8 +802,10 @@
           </div>
         </div>
       </div>
+
       <!-- SCHWÄCHEN & NOTIZEN -->
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+
         <div class="panel red-accent">
           <div class="panel-header">
             <span class="panel-title" style="color:var(--red);">SCHWACHSTELLEN</span>
@@ -809,6 +835,7 @@
             </div>
           </div>
         </div>
+
         <div class="panel cyan-accent">
           <div class="panel-header">
             <span class="panel-title" style="color:var(--cyan);">FELDNOTIZEN // SPIELLEITER</span>
@@ -822,9 +849,12 @@
             <textarea class="notes-area" rows="2">Hinterlässt stets Geruch nach Schwefel / Ozon. Kleine Flamme am Tatort, die beim Abflug erlischt.</textarea>
           </div>
         </div>
+
       </div>
+
     </div>
   </div>
+
   <!-- BOTTOM BAR -->
   <div class="bottom-bar">
     <div>CHIMERA-DB // AKTE #7741-VANE // REV.3.2 // KEPLER-SEKTOR</div>
