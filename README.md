@@ -22,7 +22,7 @@
     </div>
   </div>
 
-  <div class="edit-hint">⟨ <span>ALLE FELDER EDITIERBAR</span> — KLICKEN UM ZU BEARBEITEN ⟩</div>
+  <!-- <div class="edit-hint">⟨ <span>ALLE FELDER EDITIERBAR</span> — KLICKEN UM ZU BEARBEITEN ⟩</div> -->
 
   <div class="layout">
 	  <!-- LEFT COLUMN -->
