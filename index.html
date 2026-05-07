@@ -114,6 +114,8 @@
   .col-left { display: flex; flex-direction: column; gap: 16px; }
   .col-right { display: flex; flex-direction: column; gap: 16px; }
 
+
+
   /* === PANELS === */
   .panel {
     background: var(--panel);
@@ -175,9 +177,7 @@
     filter: contrast(1.1) saturate(0.7) sepia(0.2);
     transition: filter 0.3s;
   }
-  /*.id-photo-wrap:hover img { filter: contrast(1.2) saturate(0.9) sepia(0.1);}*/
-  .id-photo-wrap:hover img:first-child{display:none}
-  .id-photo-wrap:hover img::last-child{display:inline-block}
+  .id-photo-wrap:hover img { filter: contrast(1.2) saturate(0.9) sepia(0.1);}
   .id-overlay {
     position: absolute;
     inset: 0;
@@ -557,6 +557,60 @@
   /* TOOLTIP */
   [title] { cursor: help; }
 
+  /* === COLLAPSIBLE PANELS === */
+  .panel-collapse-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-dim);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    padding: 0 4px;
+    line-height: 1;
+    transition: color 0.2s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    letter-spacing: 1px;
+    user-select: none;
+  }
+  .panel-collapse-btn:hover { color: var(--accent); }
+  .panel.cyan-accent .panel-collapse-btn:hover { color: var(--cyan); }
+  .panel.green-accent .panel-collapse-btn:hover { color: var(--green); }
+  .panel.red-accent .panel-collapse-btn:hover { color: var(--red); }
+  .panel-collapse-btn .chevron {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    font-style: normal;
+  }
+  .panel.collapsed .panel-collapse-btn .chevron {
+    transform: rotate(-90deg);
+  }
+  .panel-body {
+    transition: max-height 0.35s ease, opacity 0.25s ease, padding 0.3s ease;
+    overflow: hidden;
+  }
+  .panel.collapsed .panel-body {
+    max-height: 0 !important;
+    opacity: 0;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  .panel:not(.collapsed) .panel-body {
+    max-height: 2000px;
+    opacity: 1;
+  }
+  /* Keep photo panel image visible toggle */
+  .panel.collapsed .id-photo-wrap {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+  .panel:not(.collapsed) .id-photo-wrap {
+    max-height: 600px;
+    transition: max-height 0.35s ease;
+  }
+
   /* EDITABLE HINT */
   .edit-hint {
     font-family: 'Share Tech Mono', monospace;
@@ -642,7 +696,7 @@
       <div class="panel" style="padding:0;">
         <div class="panel-header">
           <span class="panel-title">BIOMETRIE // FOTO-ID</span>
-          <span class="panel-id">IMG-#7741</span>
+          <span style="display:flex;align-items:center;gap:8px;"><span class="panel-id">IMG-#7741</span></span>
         </div>
         <div class="id-photo-wrap">
           <!-- <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='370' viewBox='0 0 280 370'%3E%3Crect fill='%23080c10' width='280' height='370'/%3E%3Ctext x='140' y='160' text-anchor='middle' font-family='monospace' font-size='60' fill='%231e3040'%3E👤%3C/text%3E%3Ctext x='140' y='210' text-anchor='middle' font-family='monospace' font-size='12' fill='%235a7a8a'%3EFOTO LADEN...%3C/text%3E%3Ctext x='140' y='230' text-anchor='middle' font-family='monospace' font-size='10' fill='%231e3040'%3EODER URL EINFÜGEN%3C/text%3E%3C/svg%3E" id="char-photo" alt="Charakterfoto"> -->
@@ -668,18 +722,13 @@
       <div class="panel cyan-accent">
         <div class="panel-header">
           <span class="panel-title" style="color:var(--cyan);">IDENTITÄTSDATEN</span>
-          <span class="panel-id">ID-CORE</span>
+          <span style="display:flex;align-items:center;gap:8px;"><span class="panel-id">ID-CORE</span></span>
         </div>
         <div class="panel-body">
           <div class="identity-field">
-            <div class="field-label">NAME</div>
+            <div class="field-label">NAME / ALIAS</div>
             <!-- <input class="field-value highlight" value="Elias Flux"> -->
-			<span class="field-value highlight" contenteditable="false">Elias Flux</span>
-          </div>
-		  <div class="identity-field">
-            <div class="field-label">ALIAS</div>
-            <!-- <input class="field-value highlight" value="Der Docht">-->
-			<span class="field-value highlight" contenteditable="false">&ldquo;Der Docht&rdquo;</span>
+			<span class="field-value highlight" contenteditable="false">Elias &ldquo;Der Docht&rdquo; Flux</span>
           </div>
           <div class="identity-field">
             <div class="field-label">SPEZIES // KLASSE</div>
@@ -688,6 +737,21 @@
           <div class="identity-field">
             <div class="field-label">OPERATIVE ROLLE</div>
 			<span class="field-value" contenteditable="false">Infiltrator & Terminierungsexperte</span>
+          </div>
+		  <div class="identity-field">
+            <div class="field-label">LEVEL</div>
+			<span class="field-value">
+				<span class="field-value" contenteditable="false">LVL </span>
+				<span class="field-value" contenteditable="true">1</span>
+				</span>
+          </div>
+		  <div class="identity-field">
+            <div class="field-label">ERFAHRUNG</div>
+			<span class="field-value">
+				<span class="field-value" contenteditable="true">0</span>
+				<span class="field-value" contenteditable="false"> | </span>
+				<span class="field-value" contenteditable="true">1000</span>
+				<span class="field-value" contenteditable="false"> XP</span></span>
           </div>
           <div class="identity-field">
             <div class="field-label">HEIMATWELT</div>
@@ -727,7 +791,7 @@
         <div class="panel">
           <div class="panel-header">
             <span class="panel-title">PRIMÄRWERTE</span>
-            <span class="panel-id">ATTR-A</span>
+            <span style="display:flex;align-items:center;gap:8px;"><span class="panel-id">ATTR-A</span></span>
           </div>
           <div class="panel-body" id="primary-stats">
             <!-- stats injected by JS -->
@@ -738,7 +802,7 @@
         <div class="panel cyan-accent">
           <div class="panel-header">
             <span class="panel-title" style="color:var(--cyan);">SEKUNDÄRWERTE</span>
-            <span class="panel-id">ATTR-B</span>
+            <span style="display:flex;align-items:center;gap:8px;"><span class="panel-id">ATTR-B</span></span>
           </div>
           <div class="panel-body" id="secondary-stats">
           </div>
@@ -747,9 +811,9 @@
 
       <!-- NANO-STATUS -->
       <div class="panel green-accent">
-        <div class="panel-header">
+        <div class="panel-header" onclick="togglePanel(this.closest('.panel'))" style="cursor:pointer;">
           <span class="panel-title" style="color:var(--green);">NANOBOT-SYSTEM // VITALDATEN</span>
-          <span class="panel-id">BIO-SYS</span>
+          <span style="display:flex;align-items:center;gap:8px;"><span class="panel-id">BIO-SYS</span><button class="panel-collapse-btn" onclick="event.stopPropagation();togglePanel(this.closest('.panel'))"><i class="chevron">▼</i></button></span>
         </div>
         <div class="panel-body">
           <div class="nano-grid" id="nano-grid">
@@ -767,9 +831,9 @@
 
       <!-- FÄHIGKEITEN & AUSRÜSTUNG -->
       <div class="panel">
-        <div class="panel-header">
+        <div class="panel-header" onclick="togglePanel(this.closest('.panel'))" style="cursor:pointer;">
           <span class="panel-title">FÄHIGKEITEN & AUSRÜSTUNG</span>
-          <span class="panel-id">CAP-SYS</span>
+          <span style="display:flex;align-items:center;gap:8px;"><span class="panel-id">CAP-SYS</span><button class="panel-collapse-btn" onclick="event.stopPropagation();togglePanel(this.closest('.panel'))"><i class="chevron">▼</i></button></span>
         </div>
         <div class="panel-body">
           <div class="ability-card cyan">
@@ -807,9 +871,9 @@
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
 
         <div class="panel red-accent">
-          <div class="panel-header">
+          <div class="panel-header" onclick="togglePanel(this.closest('.panel'))" style="cursor:pointer;">
             <span class="panel-title" style="color:var(--red);">SCHWACHSTELLEN</span>
-            <span class="panel-id">VULN-LOG</span>
+            <span style="display:flex;align-items:center;gap:8px;"><span class="panel-id">VULN-LOG</span><button class="panel-collapse-btn" onclick="event.stopPropagation();togglePanel(this.closest('.panel'))"><i class="chevron">▼</i></button></span>
           </div>
           <div class="panel-body">
             <div class="weakness-item">
@@ -837,9 +901,9 @@
         </div>
 
         <div class="panel cyan-accent">
-          <div class="panel-header">
+          <div class="panel-header" onclick="togglePanel(this.closest('.panel'))" style="cursor:pointer;">
             <span class="panel-title" style="color:var(--cyan);">FELDNOTIZEN // SPIELLEITER</span>
-            <span class="panel-id">NOTE-SYS</span>
+            <span style="display:flex;align-items:center;gap:8px;"><span class="panel-id">NOTE-SYS</span><button class="panel-collapse-btn" onclick="event.stopPropagation();togglePanel(this.closest('.panel'))"><i class="chevron">▼</i></button></span>
           </div>
           <div class="panel-body">
             <textarea class="notes-area" rows="4">Spricht in der 3. Person über aktuelles Gesicht. Wirkt kalt & kalkulierend – ausser bei Feuer. Dann: kindliche, beunruhigende Begeisterung.</textarea>
@@ -862,9 +926,12 @@
     <div>LETZTE ÄNDERUNG: <span id="last-edit">—</span> UHR</div>
   </div>
 
-</div>
-
 <script>
+// ====== COLLAPSIBLE PANELS ======
+function togglePanel(panel) {
+  panel.classList.toggle('collapsed');
+}
+
 // ====== DATA ======
 const primaryStats = [
   { label: "STÄRKE",       val: 52, color: "default" },
