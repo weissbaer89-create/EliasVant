@@ -13,7 +13,7 @@
   <div class="header">
     <div class="header-left">
       <div class="header-sys">SYSTEM // CHIMERA-DB v4.7.2 // ZUGRIFF GEWÄHRT</div>
-      <div class="header-title">ELIAS |DER DOCHT| VANT</div>
+      <div class="header-title">ELIAS &bdquo;DER DOCHT&ldquo; VANT</div>
       <div class="header-sub">INFILTRATIONSAKTE // KLASSIFIZIERUNG: ULTRAGEHEIM // SEKTION 9-DELTA</div>
     </div>
     <div class="header-right">
@@ -57,7 +57,7 @@
         <div class="panel-body">
           <div class="identity-field">
             <div class="field-label">BEZEICHNUNG // KAMPFNAME</div>
-            <input class="field-value highlight" value="Elias 'Der Docht' Flux">
+            <input class="field-value highlight" value="ELIAS &bdquo;DER DOCHT&ldquo; VANT">
           </div>
           <div class="identity-field">
             <div class="field-label">SPEZIES // KLASSE</div>
@@ -77,7 +77,7 @@
           </div>
           <div class="identity-field">
             <div class="field-label">OPERATIVES MOTTO</div>
-            <input class="field-value italic-field" value="„Jedes Gesicht ist eine Maske, und jede Maske brennt."">
+            <input class="field-value italic-field" value="&bdquo;Jedes Gesicht ist eine Maske, und jede Maske brennt.&ldquo;">
           </div>
           <div class="divider"><div class="divider-line"></div><div class="divider-label">MARKIERUNGEN</div><div class="divider-line"></div></div>
           <div class="tag-row" id="tag-row">
