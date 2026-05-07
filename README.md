@@ -5,12 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CHIMERA-ID // ELIAS VANT</title>
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-
 <div class="main-wrapper">
-
   <!-- HEADER -->
   <div class="header">
     <div class="header-left">
@@ -28,10 +26,8 @@
   <div class="edit-hint">⟨ <span>ALLE FELDER EDITIERBAR</span> — KLICKEN UM ZU BEARBEITEN ⟩</div>
 
   <div class="layout">
-
-    <!-- LEFT COLUMN -->
+	  <!-- LEFT COLUMN -->
     <div class="col-left">
-
       <!-- ID PHOTO PANEL -->
       <div class="panel" style="padding:0;">
         <div class="panel-header">
@@ -52,7 +48,6 @@
           <input type="text" id="photo-url" placeholder="https://..." style="width:100%;background:var(--panel2);border:1px solid var(--border);color:var(--text);font-family:'Share Tech Mono',monospace;font-size:10px;padding:5px 8px;outline:none;" oninput="updatePhoto(this.value)">
         </div> -->
       </div>
-
       <!-- IDENTITY -->
       <div class="panel cyan-accent">
         <div class="panel-header">
@@ -84,7 +79,6 @@
             <div class="field-label">OPERATIVES MOTTO</div>
             <input class="field-value italic-field" value="„Jedes Gesicht ist eine Maske, und jede Maske brennt."">
           </div>
-
           <div class="divider"><div class="divider-line"></div><div class="divider-label">MARKIERUNGEN</div><div class="divider-line"></div></div>
           <div class="tag-row" id="tag-row">
             <span class="tag active">PYROMANE</span>
@@ -96,15 +90,11 @@
           </div>
         </div>
       </div>
-
     </div>
-
     <!-- RIGHT COLUMN -->
     <div class="col-right">
-
       <!-- STATS GRID -->
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-
         <!-- PRIMÄRWERTE -->
         <div class="panel">
           <div class="panel-header">
@@ -115,7 +105,6 @@
             <!-- stats injected by JS -->
           </div>
         </div>
-
         <!-- SEKUNDÄRWERTE -->
         <div class="panel cyan-accent">
           <div class="panel-header">
@@ -126,7 +115,6 @@
           </div>
         </div>
       </div>
-
       <!-- NANO-STATUS -->
       <div class="panel green-accent">
         <div class="panel-header">
@@ -137,7 +125,6 @@
           <div class="nano-grid" id="nano-grid">
             <!-- injected by JS -->
           </div>
-
           <div class="divider"><div class="divider-line"></div><div class="divider-label">PYROMANISCHER TRIEB</div><div class="divider-line"></div></div>
           <div style="display:flex;align-items:center;flex-wrap:wrap;gap:4px;">
             <span class="pyro-label">INTENSITÄT:</span>
@@ -146,7 +133,6 @@
           </div>
         </div>
       </div>
-
       <!-- FÄHIGKEITEN & AUSRÜSTUNG -->
       <div class="panel">
         <div class="panel-header">
@@ -184,10 +170,8 @@
           </div>
         </div>
       </div>
-
       <!-- SCHWÄCHEN & NOTIZEN -->
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-
         <div class="panel red-accent">
           <div class="panel-header">
             <span class="panel-title" style="color:var(--red);">SCHWACHSTELLEN</span>
@@ -217,7 +201,6 @@
             </div>
           </div>
         </div>
-
         <div class="panel cyan-accent">
           <div class="panel-header">
             <span class="panel-title" style="color:var(--cyan);">FELDNOTIZEN // SPIELLEITER</span>
@@ -231,12 +214,9 @@
             <textarea class="notes-area" rows="2">Hinterlässt stets Geruch nach Schwefel / Ozon. Kleine Flamme am Tatort, die beim Abflug erlischt.</textarea>
           </div>
         </div>
-
       </div>
-
     </div>
   </div>
-
   <!-- BOTTOM BAR -->
   <div class="bottom-bar">
     <div>CHIMERA-DB // AKTE #7741-VANE // REV.3.2 // KEPLER-SEKTOR</div>
